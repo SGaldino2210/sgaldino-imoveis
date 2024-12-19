@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - SGaldino Imóveis</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="admin.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>SGaldino Imóveis</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#" data-section="dashboard">
+                            <i class="fas fa-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="properties">
+                            <i class="fas fa-building"></i>
+                            Imóveis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="leads">
+                            <i class="fas fa-user-friends"></i>
+                            Leads
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            Configurações
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="user-info">
+                    <span>Sergio Galdino</span>
+                    <img src="https://ui-avatars.com/api/?name=Sergio+Galdino&background=random" alt="User Avatar">
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <h2>Dashboard</h2>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Total de Imóveis</h3>
+                            <p class="number">3</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Visualizações</h3>
+                            <p class="number">150</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Leads</h3>
+                            <p class="number">25</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Properties Section -->
+            <section id="properties" class="content-section">
+                <div class="section-header">
+                    <h2>Gerenciar Imóveis</h2>
+                    <button class="add-button" onclick="openPropertyModal()">
+                        <i class="fas fa-plus"></i> Novo Imóvel
+                    </button>
+                </div>
+
+                <div class="properties-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>Título</th>
+                                <th>Tipo</th>
+                                <th>Preço</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="propertiesTableBody">
+                            <!-- Properties will be loaded here via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Leads Section -->
+            <section id="leads" class="content-section">
+                <h2>Leads</h2>
+                <div class="leads-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Imóvel</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody">
+                            <!-- Leads will be loaded here via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <h2>Configurações</h2>
+                <div class="settings-form">
+                    <form id="settingsForm">
+                        <div class="form-group">
+                            <label>Nome da Empresa</label>
+                            <input type="text" value="SGaldino Imóveis" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email de Contato</label>
+                            <input type="email" value="sgb.corretor@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp</label>
+                            <input type="tel" value="11937255009" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Endereço</label>
+                            <input type="text" value="Praça Juan Gris, 37 - Cidade Vargas, São Paulo - SP" required>
+                        </div>
+                        <button type="submit" class="save-button">Salvar Alterações</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Property Modal -->
+    <div class="modal" id="propertyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Imóvel</h2>
+                <button class="close-modal" onclick="closePropertyModal()">×</button>
+            </div>
+            <form id="propertyForm">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <select name="type" required>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="casa">Casa</option>
+                            <option value="cobertura">Cobertura</option>
+                            <option value="terreno">Terreno</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço</label>
+                        <input type="number" name="price" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea name="description" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Área (m²)</label>
+                        <input type="number" name="area" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Quartos</label>
+                        <input type="number" name="bedrooms" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Banheiros</label>
+                        <input type="number" name="bathrooms" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Vagas</label>
+                        <input type="number" name="parking" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Imagens</label>
+                    <input type="file" name="images" multiple accept="image/*">
+                </div>
+                <button type="submit" class="save-button">Salvar Imóvel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
