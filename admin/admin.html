@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - SGaldino Imóveis</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>SGaldino Imóveis - Admin</h1>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Voltar ao Site</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <h2>Cadastro de Imóveis</h2>
+            <form id="propertyForm" class="property-form">
+                <div class="form-group">
+                    <label for="propertyName">Nome do Imóvel*</label>
+                    <input type="text" id="propertyName" name="propertyName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro*</label>
+                        <input type="text" id="neighborhood" name="neighborhood" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Cidade*</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">Estado*</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Preço*</label>
+                        <input type="number" id="price" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Área (m²)*</label>
+                        <input type="number" id="area" name="area" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bedrooms">Quartos*</label>
+                        <select id="bedrooms" name="bedrooms" required>
+                            <option value="">Selecione</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suites">Suítes</label>
+                        <select id="suites" name="suites">
+                            <option value="">Selecione</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição*</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyImages">Imagens do Imóvel*</label>
+                    <input type="file" id="propertyImages" name="propertyImages" accept="image/*" multiple required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Cadastrar Imóvel</button>
+                    <button type="reset" class="btn-secondary">Limpar</button>
+                </div>
+            </form>
+
+            <div class="property-list">
+                <h3>Imóveis Cadastrados</h3>
+                <div id="propertiesGrid" class="property-grid"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
