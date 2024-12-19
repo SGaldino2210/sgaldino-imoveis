@@ -125,6 +125,20 @@ body {
     border-radius: 50%;
 }
 
+.logout-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.logout-button:hover {
+    color: var(--accent-color);
+}
+
 /* Content Sections */
 .content-section {
     display: none;

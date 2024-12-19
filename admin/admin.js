@@ -228,6 +228,29 @@ function deleteProperty(id) {
     }
 }
 
+// Verificar autenticação
+function checkAuth() {
+    if (localStorage.getItem('adminLoggedIn') !== 'true') {
+        window.location.href = 'login.html';
+    }
+}
+
+// Verificar autenticação ao carregar a página
+checkAuth();
+
+// Adicionar nome do usuário
+const username = localStorage.getItem('adminUsername');
+if (username) {
+    document.querySelector('.user-info span').textContent = username;
+}
+
+// Função de logout
+function logout() {
+    localStorage.removeItem('adminLoggedIn');
+    localStorage.removeItem('adminUsername');
+    window.location.href = 'login.html';
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     renderProperties();
