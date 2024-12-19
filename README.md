@@ -7,13 +7,19 @@ Um site moderno e responsivo para imobiliária, com integração de WhatsApp e o
 - Design responsivo e moderno
 - Catálogo de imóveis com animações suaves
 - Integração com WhatsApp para contato direto
-- Formulário de contato
 - Otimizado para SEO
 - Interface amigável e intuitiva
+
+## Contato
+
+- WhatsApp: (11) 93725-5009
+- Email: sgb.corretor@gmail.com
+- Endereço: Praça Juan Gris, 37 - Cidade Vargas, São Paulo - SP
 
 ## Requisitos
 
 - Navegador web moderno
+- Funcionar no mobile
 - Conexão com internet
 
 ## Estrutura do Projeto
