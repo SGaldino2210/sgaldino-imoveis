@@ -1,5 +1,5 @@
-// Dados simulados (substituir por integração com backend)
-let properties = [
+// Dados simulados (agora usando localStorage)
+let properties = JSON.parse(localStorage.getItem('properties')) || [
     {
         id: 1,
         title: "Apartamento Moderno em Cidade Vargas",
@@ -26,7 +26,7 @@ let properties = [
     }
 ];
 
-let leads = [
+let leads = JSON.parse(localStorage.getItem('leads')) || [
     {
         id: 1,
         name: "João Silva",
@@ -46,6 +46,12 @@ let leads = [
         status: "Em Contato"
     }
 ];
+
+// Função para salvar no localStorage
+function saveData() {
+    localStorage.setItem('properties', JSON.stringify(properties));
+    localStorage.setItem('leads', JSON.stringify(leads));
+}
 
 // Funções de Navegação
 function showSection(sectionId) {
@@ -137,21 +143,50 @@ function closePropertyModal() {
 }
 
 // Formulário de Imóveis
-document.getElementById('propertyForm').addEventListener('submit', (e) => {
+document.getElementById('propertyForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     
+    // Lidar com upload de imagem
+    const imageFile = formData.get('images');
+    let imageUrl = 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop'; // Imagem padrão
+    
+    if (imageFile && imageFile.size > 0) {
+        // Converter imagem para Base64
+        const reader = new FileReader();
+        imageUrl = await new Promise(resolve => {
+            reader.onload = e => resolve(e.target.result);
+            reader.readAsDataURL(imageFile);
+        });
+    }
+    
     // Criar novo imóvel
     const newProperty = {
-        id: properties.length + 1,
+        id: Date.now(), // Usar timestamp como ID
         title: formData.get('title'),
         type: formData.get('type'),
         price: Number(formData.get('price')),
         status: 'Disponível',
-        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop' // Imagem padrão
+        image: imageUrl,
+        area: Number(formData.get('area')),
+        bedrooms: Number(formData.get('bedrooms')),
+        bathrooms: Number(formData.get('bathrooms')),
+        parking: Number(formData.get('parking')),
+        description: formData.get('description')
     };
 
-    properties.push(newProperty);
+    if (e.target.dataset.editingId) {
+        const editingId = Number(e.target.dataset.editingId);
+        const index = properties.findIndex(p => p.id === editingId);
+        if (index !== -1) {
+            properties[index] = newProperty;
+        }
+        e.target.dataset.editingId = '';
+    } else {
+        properties.push(newProperty);
+    }
+    
+    saveData(); // Salvar no localStorage
     renderProperties();
     closePropertyModal();
     e.target.reset();
@@ -174,12 +209,21 @@ function editProperty(id) {
         form.title.value = property.title;
         form.type.value = property.type;
         form.price.value = property.price;
+        form.area.value = property.area || '';
+        form.bedrooms.value = property.bedrooms || '';
+        form.bathrooms.value = property.bathrooms || '';
+        form.parking.value = property.parking || '';
+        form.description.value = property.description || '';
+        
+        // Adicionar ID do imóvel sendo editado
+        form.dataset.editingId = id;
     }
 }
 
 function deleteProperty(id) {
     if (confirm('Tem certeza que deseja excluir este imóvel?')) {
         properties = properties.filter(p => p.id !== id);
+        saveData(); // Salvar no localStorage
         renderProperties();
     }
 }
