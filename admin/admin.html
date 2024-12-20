@@ -181,59 +181,63 @@
     </div>
 
     <!-- Property Modal -->
-    <div class="modal" id="propertyModal">
+    <div id="propertyModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>Adicionar Imóvel</h2>
-                <button class="close-modal" onclick="closePropertyModal()">×</button>
-            </div>
+            <span class="close" onclick="closePropertyModal()">&times;</span>
+            <h2>Adicionar/Editar Imóvel</h2>
             <form id="propertyForm">
                 <div class="form-group">
-                    <label>Título</label>
-                    <input type="text" name="title" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Tipo</label>
-                        <select name="type" required>
-                            <option value="apartamento">Apartamento</option>
-                            <option value="casa">Casa</option>
-                            <option value="cobertura">Cobertura</option>
-                            <option value="terreno">Terreno</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Preço</label>
-                        <input type="number" name="price" required>
-                    </div>
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
                 <div class="form-group">
-                    <label>Descrição</label>
-                    <textarea name="description" required></textarea>
+                    <label for="type">Tipo</label>
+                    <select id="type" name="type" required>
+                        <option value="">Selecione...</option>
+                        <option value="casa">Casa</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="terreno">Terreno</option>
+                        <option value="comercial">Comercial</option>
+                        <option value="cobertura">Cobertura</option>
+                    </select>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Área (m²)</label>
-                        <input type="number" name="area" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Quartos</label>
-                        <input type="number" name="bedrooms" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Banheiros</label>
-                        <input type="number" name="bathrooms" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Vagas</label>
-                        <input type="number" name="parking" required>
-                    </div>
+                <div class="form-group">
+                    <label for="price">Preço</label>
+                    <input type="number" id="price" name="price" required min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="area">Área (m²)</label>
+                    <input type="number" id="area" name="area" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="bedrooms">Quartos</label>
+                    <input type="number" id="bedrooms" name="bedrooms" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="bathrooms">Banheiros</label>
+                    <input type="number" id="bathrooms" name="bathrooms" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="parking">Vagas de Garagem</label>
+                    <input type="number" id="parking" name="parking" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Imagens</label>
-                    <input type="file" name="images" multiple accept="image/*">
+                    <div id="imageUploadArea" class="image-upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Arraste e solte as imagens aqui ou clique para selecionar</p>
+                        <input type="file" id="images" accept="image/*" multiple style="display: none;">
+                    </div>
+                    <div id="imagePreviewContainer" class="image-preview-container"></div>
                 </div>
-                <button type="submit" class="save-button">Salvar Imóvel</button>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar</button>
+                    <button type="button" class="btn-secondary" onclick="closePropertyModal()">Cancelar</button>
+                </div>
             </form>
         </div>
     </div>
