@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGaldino Imóveis</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&libraries=places"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SGaldino Imóveis</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="#imoveis">Imóveis</a></li>
+                    <li><a href="#" onclick="app.openWhatsApp(event)">
+                        <i class="fab fa-whatsapp"></i> Contato
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Encontre o Imóvel dos Seus Sonhos</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar imóveis...">
+                    <button>Buscar</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="imoveis" class="properties">
+            <div class="container">
+                <h2>Imóveis em Destaque</h2>
+                <div id="properties-grid" class="properties-grid">
+                    <!-- Imóveis serão carregados via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SGaldino Imóveis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <div class="floating-buttons">
+        <div class="whatsapp-float" onclick="app.openWhatsApp(event)">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 

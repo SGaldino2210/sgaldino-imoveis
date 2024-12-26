@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGaldino Admin</title>
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/admin/css/dashboard.css">
+    <link rel="stylesheet" href="/admin/css/leads.css">
+    <link rel="stylesheet" href="/admin/css/settings.css">
+    <link rel="stylesheet" href="/admin/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API_AQUI&libraries=places"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <h1>SGaldino Admin</h1>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-page="properties">
+                    <i class="fas fa-home"></i>
+                    Imóveis
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-page="leads">
+                    <i class="fas fa-users"></i>
+                    Leads
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    Configurações
+                </a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <span>Admin</span>
+            <button id="logout" class="btn btn-danger">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content" id="page-content">
+        <!-- O conteúdo será carregado dinamicamente -->
+    </main>
+
+    <!-- Templates -->
+    <template id="property-form-template">
+        <div class="form-container">
+            <h2>Adicionar Imóvel</h2>
+            <form id="property-form">
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Preço</label>
+                        <input type="number" id="price" name="price" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Tipo</label>
+                        <select id="type" name="type" class="form-control" required>
+                            <option value="Apartamento">Apartamento</option>
+                            <option value="Casa">Casa</option>
+                            <option value="Terreno">Terreno</option>
+                            <option value="Comercial">Comercial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="location">Localização</label>
+                    <input type="text" id="location" name="location" class="form-control" required>
+                    <div id="map" style="height: 300px; margin-top: 10px; border-radius: 8px;"></div>
+                    <input type="hidden" id="latitude" name="latitude">
+                    <input type="hidden" id="longitude" name="longitude">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="area">Área (m²)</label>
+                        <input type="number" id="area" name="area" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="bedrooms">Quartos</label>
+                        <input type="number" id="bedrooms" name="bedrooms" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="suites">Suítes</label>
+                        <input type="number" id="suites" name="suites" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathrooms">Banheiros</label>
+                        <input type="number" id="bathrooms" name="bathrooms" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="parking">Vagas</label>
+                        <input type="number" id="parking" name="parking" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Itens de Lazer</label>
+                    <div class="amenities-grid">
+                        <div class="amenity-item">
+                            <input type="checkbox" id="pool" name="amenities" value="pool">
+                            <label for="pool">Piscina</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="gym" name="amenities" value="gym">
+                            <label for="gym">Academia</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="playground" name="amenities" value="playground">
+                            <label for="playground">Playground</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="party-room" name="amenities" value="party-room">
+                            <label for="party-room">Salão de Festas</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="bbq" name="amenities" value="bbq">
+                            <label for="bbq">Churrasqueira</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="sports-court" name="amenities" value="sports-court">
+                            <label for="sports-court">Quadra Esportiva</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="sauna" name="amenities" value="sauna">
+                            <label for="sauna">Sauna</label>
+                        </div>
+                        <div class="amenity-item">
+                            <input type="checkbox" id="games-room" name="amenities" value="games-room">
+                            <label for="games-room">Sala de Jogos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="images">Imagens</label>
+                    <input type="file" id="images" name="images" multiple accept="image/*" class="form-control">
+                    <div id="image-preview" class="image-preview"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <script src="/admin/js/admin.js"></script>
+</body>
+</html> 

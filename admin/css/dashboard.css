@@ -1,0 +1,68 @@
+.dashboard {
+    padding: 2rem;
+}
+
+.dashboard h2 {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.recent-items {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recent-items h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.properties-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.property-item {
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.property-item h4 {
+    color: var(--text-color);
+}
+
+.property-item p {
+    color: var(--accent-color);
+    font-weight: 500;
+} 

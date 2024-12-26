@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontre seu Imóvel Ideal | SGaldino Imóveis</title>
+    <link rel="stylesheet" href="/css/landing-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section com Oferta Única -->
+    <section class="hero">
+        <div class="container">
+            <h1>Realize o Sonho da Casa Própria com Facilidade</h1>
+            <p class="subtitle">Assessoria completa e personalizada para encontrar o imóvel perfeito para você</p>
+            <a href="#contato" class="cta-button">
+                <i class="fab fa-whatsapp"></i>
+                Fale com um Especialista
+            </a>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Por que escolher a SGaldino Imóveis?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Busca Personalizada</h3>
+                    <p>Encontramos o imóvel ideal de acordo com suas necessidades e preferências</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Documentação Garantida</h3>
+                    <p>Assessoria jurídica completa em todo o processo de compra ou aluguel</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Melhores Condições</h3>
+                    <p>Negociamos as melhores taxas e condições de pagamento para você</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Agilidade</h3>
+                    <p>Processo simplificado e ágil, sem burocracia desnecessária</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Como Funciona?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Entre em Contato</h3>
+                    <p>Fale com nossos especialistas sobre suas necessidades</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Análise Personalizada</h3>
+                    <p>Buscamos as melhores opções que se encaixam no seu perfil</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Visitas aos Imóveis</h3>
+                    <p>Acompanhamento presencial nas visitas aos imóveis selecionados</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Fechamento</h3>
+                    <p>Suporte completo na negociação e documentação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Processo super tranquilo e profissional. Encontrei meu apartamento em apenas 2 semanas!"</p>
+                    <div class="client-info">
+                        <strong>Maria Silva</strong>
+                        <span>São Paulo, SP</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Excelente atendimento e atenção aos detalhes. Recomendo fortemente!"</p>
+                    <div class="client-info">
+                        <strong>João Santos</strong>
+                        <span>São Paulo, SP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contato" class="cta-section">
+        <div class="container">
+            <h2>Pronto para Encontrar seu Imóvel Ideal?</h2>
+            <p>Fale agora mesmo com um de nossos especialistas</p>
+            <a href="#" class="cta-button" onclick="contactWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                Iniciar Conversa
+            </a>
+        </div>
+    </section>
+
+    <script>
+        function contactWhatsApp() {
+            const phoneNumber = '5511937255009';
+            const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços da SGaldino Imóveis.');
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html> 

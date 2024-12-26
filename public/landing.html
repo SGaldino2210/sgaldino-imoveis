@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidade Única | SGaldino Imóveis</title>
+    <link rel="stylesheet" href="/css/landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="property-title">Carregando...</h1>
+                <p class="highlight-price" id="property-price">R$ --</p>
+                <div class="cta-buttons">
+                    <button class="cta-primary" onclick="landingPage.contactWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Quero Mais Informações
+                    </button>
+                    <button class="cta-secondary" onclick="landingPage.scheduleVisit()">
+                        <i class="far fa-calendar-alt"></i>
+                        Agendar Visita
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="container">
+                <div class="main-image">
+                    <img id="main-image" src="/img/placeholder.jpg" alt="Imagem principal">
+                </div>
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <div class="container">
+                <h2>Destaques do Imóvel</h2>
+                <div class="highlights-grid" id="property-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <strong id="property-area">--</strong>
+                        <span>Área Total</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-bed"></i>
+                        <strong id="property-bedrooms">--</strong>
+                        <span>Quartos</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-star"></i>
+                        <strong id="property-suites">--</strong>
+                        <span>Suítes</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-bath"></i>
+                        <strong id="property-bathrooms">--</strong>
+                        <span>Banheiros</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Diferenciais</h2>
+                <ul class="features-grid" id="property-amenities"></ul>
+            </div>
+        </section>
+
+        <section class="description">
+            <div class="container">
+                <h2>Sobre o Imóvel</h2>
+                <p id="property-description">Carregando...</p>
+            </div>
+        </section>
+
+        <section class="location">
+            <div class="container">
+                <h2>Localização Privilegiada</h2>
+                <p id="property-location">Carregando...</p>
+                <div id="map" class="location-map"></div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <h2>Garanta esta Oportunidade!</h2>
+                    <p>Preencha o formulário e nossa equipe entrará em contato em até 24 horas.</p>
+                    <form id="contact-form" onsubmit="landingPage.submitForm(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Seu WhatsApp" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Seu E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Mensagem (opcional)" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="cta-primary full-width">
+                            Quero Mais Informações
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SGaldino Imóveis. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float" onclick="landingPage.contactWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/landing.js"></script>
+</body>
+</html> 

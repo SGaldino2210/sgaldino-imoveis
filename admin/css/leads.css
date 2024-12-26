@@ -1,0 +1,108 @@
+.leads-container {
+    padding: 1rem;
+}
+
+.leads-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.leads-filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.leads-filters select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+.leads-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.leads-table-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.leads-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leads-table th,
+.leads-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.leads-table th {
+    background: var(--light-bg);
+    font-weight: 600;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.lead-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lead-actions button {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.lead-actions button:hover {
+    background: var(--light-bg);
+}
+
+.status-select {
+    padding: 0.25rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 120px;
+}
+
+/* Status colors */
+.status-select option[value="new"] { color: var(--primary-color); }
+.status-select option[value="contacted"] { color: var(--secondary-color); }
+.status-select option[value="negotiating"] { color: var(--warning-color); }
+.status-select option[value="closed"] { color: var(--success-color); }
+.status-select option[value="lost"] { color: var(--accent-color); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leads-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .leads-filters {
+        flex-wrap: wrap;
+    }
+
+    .leads-table {
+        display: block;
+        overflow-x: auto;
+    }
+} 
